@@ -182,14 +182,5 @@ export const DISHES =
                     date: "2011-12-02T17:57:28.556094Z"
                 }
             ]
-        },
-        {
-            id: 4,
-            name:'Foxypizza',
-            image: 'assets/images/uthappizza.png',
-            category: 'mains',
-            label:'Hot',
-            price:'4.99',
-            description:'A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer. This item has no comments!',
-            comments: ''}
+        }
     ];

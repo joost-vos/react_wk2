@@ -36,8 +36,7 @@ class DishDetail extends Component {
                             day: '2-digit',
                             month: 'short',
                             year: 'numeric'
-                        }).format(new Date(comment.date))}
-                    </p>
+                        }).format(new Date(Date.parse(comment.date)))}</p>
                 </li>
             );
         });

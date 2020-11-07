@@ -5,7 +5,7 @@ export const COMMENTS =
             dishId: 0,
             rating: 5,
             comment: "Imagine all the eatables, living in conFusion!",
-            author: "John Lemon",
+            author: "John Lime",
             date: "2012-10-16T17:57:28.556094Z"
         },
         {
@@ -37,7 +37,7 @@ export const COMMENTS =
             dishId: 0,
             rating: 2,
             comment: "It's your birthday, we're gonna party!",
-            author: "25 Cent",
+            author: "25 Gaga",
             date: "2011-12-02T17:57:28.556094Z"
         },
         {
@@ -45,7 +45,7 @@ export const COMMENTS =
             dishId: 1,
             rating: 5,
             comment: "Imagine all the eatables, living in conFusion!",
-            author: "John Lemon",
+            author: "John Lime",
             date: "2012-10-16T17:57:28.556094Z"
         },
         {
@@ -85,7 +85,7 @@ export const COMMENTS =
             dishId: 2,
             rating: 5,
             comment: "Imagine all the eatables, living in conFusion!",
-            author: "John Lemon",
+            author: "John Lime",
             date: "2012-10-16T17:57:28.556094Z"
         },
         {
@@ -117,7 +117,7 @@ export const COMMENTS =
             dishId: 2,
             rating: 2,
             comment: "It's your birthday, we're gonna party!",
-            author: "25 Cent",
+            author: "25 Gaga",
             date: "2011-12-02T17:57:28.556094Z"
         },
         {
@@ -125,7 +125,7 @@ export const COMMENTS =
             dishId: 3,
             rating: 5,
             comment: "Imagine all the eatables, living in conFusion!",
-            author: "John Lemon",
+            author: "John Lime",
             date: "2012-10-16T17:57:28.556094Z"
         },
         {
@@ -157,7 +157,7 @@ export const COMMENTS =
             dishId: 3,
             rating: 2,
             comment: "It's your birthday, we're gonna party!",
-            author: "25 Cent",
+            author: "25 Gaga",
             date: "2011-12-02T17:57:28.556094Z"
         }
     ]

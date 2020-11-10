@@ -108,8 +108,6 @@ class Header extends Component {
                             </FormGroup>
                             <Button type="submit" value="submit" color="primary">Login</Button>
                         </Form>
-
-                        {/*<p>This will be the login Modal</p>*/}
                     </ModalBody>
                 </Modal>
             </>

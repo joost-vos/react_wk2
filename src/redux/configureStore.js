@@ -6,7 +6,7 @@ import { Promotions } from './promotions';
 import { Leaders } from './leaders';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import {InitialFeedback} from "./forms";
+import { InitialFeedback } from "./forms";
 
 export const ConfigureStore = () => {
   const store = createStore(

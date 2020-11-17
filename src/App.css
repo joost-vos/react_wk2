@@ -53,3 +53,31 @@ address{
     transform: translateX(100%);
     transition: all 300ms ease-out;
 }
+
+
+.list li a span {
+        transform: translateY(100px);
+        transition: 0.2s;
+    }
+/*    .list:hover span {*/
+/*        transform: translateY(0);*/
+/*    }*/
+/*    .list li:nth-child(1) span {*/
+/*        transition-delay: 1ss;*/
+/*    }*/
+/*    .list li:nth-child(2) span {*/
+/*        transition-delay: 2s;*/
+/*    }*/
+/*    .list li:nth-child(3) span {*/
+/*        transition-delay: 3s;*/
+/*    }*/
+/*    .list li:nth-child(4) span {*/
+/*        transition-delay: 4s;*/
+/*    }*/
+/*    .list li:nth-child(5) span {*/
+/*        transition-delay: 0.2s;*/
+/*    }*/
+/*    .list li:nth-child(6) span {*/
+/*        transition-delay: 0.25s;*/
+/*    }*/
+/*}*/

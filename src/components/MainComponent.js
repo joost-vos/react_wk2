@@ -6,9 +6,10 @@ import About from './AboutComponent';
 import DishDetail from './DishdetailComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
+
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-import { postComment, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/ActionCreators';
+import { postComment, postFeedback,fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/ActionCreators';
 import { actions } from "react-redux-form";
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -22,22 +23,18 @@ const mapStateToProps = state => {
     }
 }
 // added for the addition of the comment
-const mapDispatchToProps = dispatch => ({
-    // addComment: (dishId, rating, author, comment) => dispatch(addComment(dishId, rating, author, comment)),
+const mapDispatchToProps = (dispatch) => ({
     postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
-    fetchDishes: () => { dispatch(fetchDishes())},
+    fetchDishes: () => { dispatch(fetchDishes()) },
     resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
-    fetchComments: () => {dispatch(fetchComments())},
-    fetchPromos: () => {dispatch(fetchPromos())},
-    fetchLeaders: () => {dispatch(fetchLeaders())}
+    fetchPromos: () => { dispatch(fetchPromos()) },
+    fetchComments: () => { dispatch(fetchComments()) },
+    fetchLeaders: () => { dispatch(fetchLeaders()) },
+    postFeedback: (feedback) => dispatch(postFeedback(feedback))
 });
 
+
 class Main extends Component {
-
-    constructor(props) {
-        super(props);
-
-    }
 
     componentDidMount() {
         this.props.fetchDishes();
@@ -79,14 +76,6 @@ class Main extends Component {
             <div>
                 <Header />
                 <div>
-                    {/*<Switch>*/}
-                    {/*    <Route path='/home' component={HomePage} />*/}
-                    {/*    <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />} />*/}
-                    {/*    <Route exact path='/menu' component={() => <Menu dishes={this.props.dishes} />} />*/}
-                    {/*    <Route path='/menu/:dishId' component={DishWithId} />*/}
-                    {/*    <Route exact path='/contactus' component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />*/}
-                    {/*    <Redirect to="/home" />*/}
-                    {/*</Switch>*/}
                     <TransitionGroup>
                         <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
                             <Switch location={this.props.location}>
@@ -94,7 +83,7 @@ class Main extends Component {
                                 <Route exact path='/aboutus' component={() => <About leaders={this.props.leaders} />} />} />
                                 <Route exact path='/menu' component={() => <Menu dishes={this.props.dishes} />} />
                                 <Route path='/menu/:dishId' component={DishWithId} />
-                                <Route exact path='/contactus' component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
+                                <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback} />} />
                                 <Redirect to="/home" />
                             </Switch>
                         </CSSTransition>

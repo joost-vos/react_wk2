@@ -36,7 +36,7 @@ class CommentForm extends Component {
         this.toggleModal();
         this.props.postComment(this.props.dishId, values.rating, values.author, values.message);
         // console.log('Current State is: ' + JSON.stringify(values));
-        // alert('Current State is: ' + JSON.stringify(values));
+        alert('Current State is: ' + JSON.stringify(values));
     }
 
 

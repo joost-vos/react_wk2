@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {Card, CardImg,Breadcrumb, BreadcrumbItem,Button, Modal, ModalHeader, ModalBody, Label, Col, Row} from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, CardImg,Breadcrumb, BreadcrumbItem,Button, Modal, ModalHeader, ModalBody, Label, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { LocalForm, Control, Errors, } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -103,37 +104,50 @@ class CommentForm extends Component {
 function RenderDish({ dish }) {
     return (
         <div key={dish.id} className="col-12 col-md-5 m-1">
-            <Card>
-                <CardImg top src={baseUrl + dish.image} alt={dish.name} />
-                <h4 className="text-left">{dish.name}</h4>
-                <p className="text-left">{dish.description}</p>
-            </Card>
+            <FadeTransform in transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
+                <Card>
+                    <CardImg top src={baseUrl + dish.image} alt={dish.name} />
+                    <CardBody>
+                        <CardTitle>{dish.name}</CardTitle>
+                        <CardText>{dish.description}</CardText>
+                    </CardBody>
+                </Card>
+            </FadeTransform>
         </div>
     );
 }
 
-function RenderComments({comments, postComment, dishId}) {
-    const commentsRendered = comments.map((comment) => {
-        const commentDate = new Date(comment.date)
-        const dateMonDdYYYY = commentDate.toLocaleDateString('us-EN', { year: 'numeric', month: 'short', day: '2-digit' })
+
+function RenderComments({comments,postComment,dishId}){
+    // const commentDate = new Date(comment.date)
+    // const dateMonDdYYYY = commentDate.toLocaleDateString('us-EN', { year: 'numeric', month: 'short', day: '2-digit' })
+    if (comments !=null)
         return (
-            <li key={comment.id} className="text-left">
-                <p>{comment.comment}</p>
-                <p>--{comment.author} , {dateMonDdYYYY}</p>
-            </li>
+            <div className="col-12 col-md-5 m-1">
+                <h4>Comments</h4>
+                <ul className="list-unstyled">
+                    <Stagger in>
+                        {comments.map((comment) => {
+                            return (
+                                <Fade in>
+                                    <li key={comment.id}>
+                                        <p>{comment.comment}</p>
+                                        <p>-- {comment.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+                                    </li>
+                                </Fade>
+                            );
+                        })}
+                    </Stagger>
+                </ul>
+                <CommentForm dishId={dishId} postComment={postComment}></CommentForm>
+            </div>
         );
-    });
-
-    return (
-        <div >
-            <h4 className="text-left">Comments</h4>
-            <ul className="list-unstyled">
-                {commentsRendered}
-            </ul>
-            <CommentForm dishId={dishId} postComment={postComment} />
-        </div>
-    );
 }
+
+
+//
 
 const DishDetail = (props) => {
     if (props.isLoading) {
